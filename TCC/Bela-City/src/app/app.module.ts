@@ -10,6 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CardPostComponent } from './card-post/card-post.component';
 import {MatCardModule} from '@angular/material/card';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 
 
@@ -19,7 +21,9 @@ import {MatCardModule} from '@angular/material/card';
   declarations: [
     AppComponent,
     MenuLayoutComponent,
-    CardPostComponent
+    CardPostComponent,
+    ProfilePageComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
