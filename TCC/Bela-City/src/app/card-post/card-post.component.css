@@ -1,0 +1,28 @@
+.caixaNomeFoto{
+display: flex;
+flex-direction: row;
+padding-top: 10px;
+
+}
+
+.caixaNomeFoto p{
+  padding-top: 5px;
+}
+
+.imagemPost{
+
+  width: 100%;
+  height:fit-content;
+}
+
+mat-card{
+  margin: 10px;
+}
+
+.fotoProfile{
+
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  margin-right: 10px;
+}

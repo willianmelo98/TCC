@@ -1,0 +1,10 @@
+mat-toolbar{
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+}
+
+.caixaMenu{
+  display:flex ;
+ margin: auto;
+}
