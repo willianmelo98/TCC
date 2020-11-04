@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "bela-city"
+  },
+  "targets": {
+    "bela-city": {
+      "hosting": {
+        "Bela-City": [
+          "bela-city"
+        ]
+      }
+    }
+  }
+}

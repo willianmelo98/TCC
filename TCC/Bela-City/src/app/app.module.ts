@@ -1,19 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './shared/routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MenuLayoutComponent } from './menu-layout/menu-layout.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { CardPostComponent } from './card-post/card-post.component';
 import {MatCardModule} from '@angular/material/card';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { AddPostComponent } from './add-post/add-post.component';
 
-
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AuthService } from "./shared/services/auth.service";
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { CardPostComponent } from './components/card-post/card-post.component';
+import { MenuLayoutComponent } from './components/menu-layout/menu-layout.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 
 
@@ -23,7 +32,11 @@ import { AddPostComponent } from './add-post/add-post.component';
     MenuLayoutComponent,
     CardPostComponent,
     ProfilePageComponent,
-    AddPostComponent
+    AddPostComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,10 +45,15 @@ import { AddPostComponent } from './add-post/add-post.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule
+
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

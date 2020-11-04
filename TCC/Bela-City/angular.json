@@ -119,9 +119,14 @@
               "devServerTarget": "Bela-City:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
   },
   "defaultProject": "Bela-City"
+
 }
