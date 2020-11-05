@@ -3,7 +3,8 @@
   <img class="imagemPost" [src]="url">
   <div>
 
-  <span class="caixaNomeFoto"><img class="fotoProfile" src="https://thispersondoesnotexist.com/image"> <p> nome usuario </p></span>
+  <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+    alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
 
 
   </div>
@@ -18,7 +19,8 @@
   <img class="imagemPost" [src]="url">
   <div>
 
-  <span class="caixaNomeFoto"><img class="fotoProfile" src="https://thispersondoesnotexist.com/image"> nome usuario </span>
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
 
 
   </div>
@@ -33,7 +35,8 @@
   <img class="imagemPost" [src]="url">
   <div>
 
-  <span class="caixaNomeFoto"><img class="fotoProfile" src="https://thispersondoesnotexist.com/image"> nome usuario </span>
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
 
 
   </div>
@@ -45,11 +48,66 @@
 
 <mat-card>
 
+
   <img class="imagemPost" [src]="url">
   <div>
 
-  <span class="caixaNomeFoto"><img class="fotoProfile" src="https://thispersondoesnotexist.com/image"> nome usuario </span>
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
 
+  </div>
+
+
+
+</mat-card>
+
+
+
+
+<mat-card>
+
+
+  <img class="imagemPost" [src]="url">
+  <div>
+
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
+
+  </div>
+
+
+
+</mat-card>
+
+
+
+
+<mat-card>
+
+
+  <img class="imagemPost" [src]="url">
+  <div>
+
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
+
+  </div>
+
+
+
+</mat-card>
+
+
+
+
+<mat-card>
+
+
+  <img class="imagemPost" [src]="url">
+  <div>
+
+    <span class="caixaNomeFoto"  *ngIf="authService.userData as user"><img class="fotoProfile" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+      alt="{{user.displayName}}"> <p> {{(user.displayName) ? user.displayName : 'User'}}</p></span>
 
   </div>
 

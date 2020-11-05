@@ -8,3 +8,7 @@ mat-toolbar{
   display:flex ;
  margin: auto;
 }
+
+.homePosts{
+  margin-bottom: 60px;
+}
