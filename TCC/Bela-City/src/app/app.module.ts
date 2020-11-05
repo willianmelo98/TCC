@@ -23,6 +23,8 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { CardPostComponent } from './components/card-post/card-post.component';
 import { MenuLayoutComponent } from './components/menu-layout/menu-layout.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 
@@ -49,7 +51,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule
 
 
   ],
