@@ -24,6 +24,8 @@ import { CardPostComponent } from './components/card-post/card-post.component';
 import { MenuLayoutComponent } from './components/menu-layout/menu-layout.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 
 
@@ -51,6 +53,7 @@ import {MatMenuModule} from '@angular/material/menu';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     ReactiveFormsModule,
     MatMenuModule
 
