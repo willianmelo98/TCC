@@ -10,13 +10,13 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active">
-              <i class="fas fa-user"></i>User Profile
+              <i class="fas fa-user"></i>Perfil
             </a>
           </li>
           <!-- Calling SignOut() Api from AuthService -->
           <li class="nav-item">
             <a class="nav-link" (click)="authService.SignOut()">
-              <i class="fas fa-sign-out-alt"></i>Log out
+              <i class="fas fa-sign-out-alt"></i>Sair
             </a>
           </li>
         </ul>
@@ -35,7 +35,7 @@
               <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
                 alt="{{user.displayName}}">
               <div class="media-body">
-                <h1> <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                <h1> <strong>{{(user.displayName) ? user.displayName : 'Nome'}}</strong></h1>
                 <div> <strong class="email">{{user.email}}</strong></div>
 
               </div>

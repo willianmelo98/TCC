@@ -55,7 +55,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFirestoreModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+
 
 
   ],

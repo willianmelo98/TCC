@@ -13,7 +13,8 @@ import firebase from 'firebase/app';
 })
 
 export class AuthService {
-  userData: any; // Save logged in user data
+   userData: any; // Save logged in user data
+
 
 
   constructor(
