@@ -1,5 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { Project } from 'src/app/shared/services/project.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-card-post',
@@ -8,14 +11,25 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class CardPostComponent implements OnInit {
 
+  projects$: Observable<Project[]>
+  project: Project;
 
-  url:String = "https://firebasestorage.googleapis.com/v0/b/bela-city.appspot.com/o/name-your-file-path-here?alt=media&token=2408fb70-eb4d-4983-b832-a95c30d27eea"
-  constructor( public authService: AuthService,
+   photoURL:string;
+  url:String;
+
+
+  constructor( public authService: AuthService, private projectService: StorageService,
     public ngZone: NgZone) {
 
    }
 
   ngOnInit(): void {
+    this.projects$ = this.projectService.getAllProjects();
+    this.photoURL = this.project.photoURL
+
   }
+
+
+
 
 }
