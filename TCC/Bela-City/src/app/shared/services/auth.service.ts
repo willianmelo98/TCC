@@ -39,6 +39,7 @@ export class AuthService {
 
 
 
+
   // Sign in with email/password
   SignIn(email, password) {
     return this.auth.signInWithEmailAndPassword(email, password).then((result) => {
@@ -96,6 +97,18 @@ export class AuthService {
 
 
   }
+
+
+  FacebookAuth(){
+    return this.AuthLogin(new firebase.auth.FacebookAuthProvider())
+
+  }
+
+  Auth(){
+    return this.AuthLogin(new firebase.auth.OAuthProvider('microsoft.com'))
+
+  }
+
 
   // Auth logic to run auth providers
   AuthLogin(provider) {

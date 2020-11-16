@@ -6,16 +6,19 @@
       <form [formGroup]="formProject" (ngSubmit)="saveProject()">
         <div class="control-group">
           <div class="form-group floating-label-form-group controls mb-0 pb-2">
-            <label>Title</label>
-            <input class="form-control" formControlName="title" type="text" placeholder="Title" required>
+            <label>Problema</label>
+            <input class="form-control" formControlName="title" type="text" placeholder="Problema" required>
 
           </div>
         </div>
 
+
+
+
         <div class="control-group">
           <div class="form-group floating-label-form-group controls mb-0 pb-2">
-            <label>Drescição</label>
-            <textarea class="form-control" formControlName="description" rows="5" placeholder="Description" required="required"></textarea>
+            <label>Descrição</label>
+            <textarea class="form-control" formControlName="description" rows="5" placeholder="Descrição" required="required"></textarea>
 
           </div>
         </div>
@@ -49,7 +52,7 @@
 
         <table class="table table-bordred table-striped">
           <thead>
-            <th>Titulo</th>
+            <th>Problema</th>
             <th>Publicação</th>
             <th>Descrição</th>
             <th>Ações</th>

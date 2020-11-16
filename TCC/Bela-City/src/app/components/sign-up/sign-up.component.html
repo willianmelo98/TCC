@@ -12,6 +12,7 @@
         <input type="password" class="formControl" placeholder="Password" #userPwd required>
       </div>
 
+
       <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
       </div>
@@ -29,7 +30,15 @@
       </div>
 
       <!-- Continue with Facebook -->
+      <div class="formGroup">
+        <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
+          <i class="fab fa-facebook"></i>
+          Continue with Facebook
+        </button>
+      </div>
 
+
+    </div>
 
     <div class="redirectToLogin">
       <span>Já Possui uma Conta? <span class="redirect" routerLink="/sign-in">Log In</span></span>
