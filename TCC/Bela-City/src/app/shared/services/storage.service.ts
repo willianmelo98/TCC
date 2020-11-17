@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Project } from './project.model';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,9 @@ import { Project } from './project.model';
 
 export class StorageService {
 
+
+
+nome:String;
 
   projectCol: AngularFirestoreCollection<Project>;
 
@@ -22,6 +26,11 @@ export class StorageService {
       .valueChanges()
   }
 
+
+   getPost(): Observable<Project[]>{
+     return this.storage.collection<Project>("projects", ref => ref.where("displayName", "==",this.perfil.displayName)).valueChanges();
+
+   }
 
   save(project: Project): Promise<void> {
     project.datePub = new Date();
@@ -40,6 +49,13 @@ export class StorageService {
     return this.projectCol.doc(project.idProject)
       .delete()
   }
+
+
+  get perfil(): User {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user
+  }
+
 
 }
 

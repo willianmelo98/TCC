@@ -41,7 +41,7 @@ export class AuthService {
 
 
   // Sign in with email/password
-  SignIn(email, password) {
+  SignIn(email, password,) {
     return this.auth.signInWithEmailAndPassword(email, password).then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['main']);
@@ -103,12 +103,6 @@ export class AuthService {
     return this.AuthLogin(new firebase.auth.FacebookAuthProvider())
 
   }
-
-  Auth(){
-    return this.AuthLogin(new firebase.auth.OAuthProvider('microsoft.com'))
-
-  }
-
 
   // Auth logic to run auth providers
   AuthLogin(provider) {

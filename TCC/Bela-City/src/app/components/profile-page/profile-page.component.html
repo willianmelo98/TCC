@@ -44,9 +44,31 @@
             </div>
           </div>
         </div>
+        <div>
+
+          <mat-card *ngFor="let p of post$ | async">
+            <img class="imagemPost" [src]="p.photoMain">
+            <div>
+
+            <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="p.photoURL"
+              alt={{p.displayName}}> <p>{{p.displayName}}</p></span>
+
+
+              <span class="caixaNomeFoto" >Problema: {{p.title}}</span>
+              <span class="caixaNomeFoto" >Descrição: {{p.description}}</span>
+
+            </div>
+
+
+
+          </mat-card>
+
+        </div>
 
       </div>
     </main>
+
+
 
   </div>
 </div>

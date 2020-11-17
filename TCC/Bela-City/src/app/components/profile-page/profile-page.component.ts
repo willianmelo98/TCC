@@ -1,6 +1,9 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { Project } from 'src/app/shared/services/project.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -9,13 +12,23 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ProfilePageComponent implements OnInit {
 
+  post$: Observable<Project[]>
+  project: Project;
+
+
   constructor(
     public authService: AuthService,
-    public router: Router,
+    private projectService: StorageService,
+        public router: Router,
     public ngZone: NgZone
   ) { }
 
   ngOnInit(): void {
+    this.post$ = this.projectService.getPost();
+
   }
+
+
+
 
 }
