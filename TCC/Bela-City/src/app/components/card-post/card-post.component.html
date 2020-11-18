@@ -1,4 +1,14 @@
+
+  <mat-label id="filtro">Filtrar: </mat-label>
+  <select class="filtro">
+    <option value="" selected></option>
+    <option value="Itaquaquecetuba">Itaquaquecetuba</option>
+    <option value="SãoMiguel">São Miguel Paulista</option>
+  </select>
+
+
 <mat-card *ngFor="let p of projects$ | async">
+
   <img class="imagemPost" [src]="p.photoMain">
   <div>
 

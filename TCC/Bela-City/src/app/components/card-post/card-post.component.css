@@ -27,6 +27,12 @@ mat-card{
   margin-right: 10px;
 }
 
+.filtro{
+  margin-top: 10px;
+  
+}
+
+
 
 @media only screen and (min-width: 600px) {
   mat-card{

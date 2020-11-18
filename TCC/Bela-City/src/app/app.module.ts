@@ -25,6 +25,10 @@ import { MenuLayoutComponent } from './components/menu-layout/menu-layout.compon
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,8 +55,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFireStorageModule,
     ReactiveFormsModule,
     MatMenuModule,
-
-
+    MatSelectModule,
+    MatFormFieldModule,
 
 
   ],
