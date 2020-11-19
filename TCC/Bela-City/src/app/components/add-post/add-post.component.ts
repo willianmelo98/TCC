@@ -144,7 +144,7 @@ export class AddPostComponent implements OnInit {
   ngOnInit() {
     this.initForm()
     this.labelButton = 'Save';
-    this.projects$ = this.projectService.getAllProjects();
+    this.projects$ = this.projectService.getPost();
     this.project = new Project();
   }
 
