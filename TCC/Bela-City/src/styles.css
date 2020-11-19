@@ -554,6 +554,31 @@ body .table thead th {
 /* Responsive */
 @media(max-width:767px) {
 
+  h3{
+    color: white;
+  }
+
+
+  .forgotPassword span{
+    color: white;
+  }
+
+
+  .authBlock{
+    background-color: #3F51B5;
+  }
+
+
+  .or{
+    background-color: #3F51B5;
+  }
+
+
+  .orInner{
+    background-color: #3F51B5;
+    color: white;
+  }
+
 
   .redirectToLogin {
     padding: 15px 0 0;
@@ -564,6 +589,10 @@ body .table thead th {
     color:rgb(48, 47, 47);
   }
 
+  .displayTableCell{
+    background-color: #3F51B5;
+  }
+
 
   .redirectToLogin .redirect {
     cursor: pointer;
@@ -571,6 +600,15 @@ body .table thead th {
     text-decoration: underline;
   }
 
+
+  .redirectToLogin span {
+    color: white;
+  }
+
+
+  .redirectToLogin span.redirect {
+    color: white;
+  }
 
 
   .sidebar {
