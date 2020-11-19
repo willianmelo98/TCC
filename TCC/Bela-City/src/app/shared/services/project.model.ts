@@ -4,7 +4,7 @@
 export class Project {
   photoURL: string;
   displayName: string;
-
+  bairro:string;
   idProject: string;
   name: string;
   title: string;

@@ -1,11 +1,14 @@
 
-  <mat-label id="filtro">Filtrar: </mat-label>
-  <select class="filtro">
-    <option value="" selected></option>
-    <option value="Itaquaquecetuba">Itaquaquecetuba</option>
-    <option value="SãoMiguel">São Miguel Paulista</option>
-  </select>
-
+<!--
+<mat-card>
+<mat-form-field appearance="fill">
+  <mat-label>Bairro</mat-label>
+  <mat-select>
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+  </mat-select>
+</mat-form-field>
+</mat-card> -->
 
 <mat-card *ngFor="let p of projects$ | async">
 
@@ -18,6 +21,7 @@
 
     <span class="caixaNomeFoto" >Problema: {{p.title}}</span>
     <span class="caixaNomeFoto" >Descrição: {{p.description}}</span>
+    <span class="caixaNomeFoto" >Bairro: {{p.bairro}}</span>
 
   </div>
 

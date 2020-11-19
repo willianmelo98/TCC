@@ -27,6 +27,15 @@ nome:String;
   }
 
 
+   getProject(): Observable<Project[]> {
+    return this.storage.collection<Project>('projects', ref =>
+      ref
+      .where("bairro", "==", "Aricanduva‎"))
+      .valueChanges()
+  }
+
+
+
    getPost(): Observable<Project[]>{
      return this.storage.collection<Project>("projects", ref => ref.where("displayName", "==",this.perfil.displayName)).valueChanges();
 

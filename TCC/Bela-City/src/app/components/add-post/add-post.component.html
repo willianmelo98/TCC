@@ -22,6 +22,18 @@
 
           </div>
         </div>
+
+
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Bairro</label>
+                <select class="" formControlName="bairro" required="requerid">
+                  <option *ngFor="let estado of estados" [value]="estado">{{estado}}</option>
+                </select>
+
+          </div>
+        </div>
+
         <div class="control-group ">
           <div class="form-group floating-label-form-group controls ">
             <label>Imagem*:</label>
@@ -55,6 +67,7 @@
             <th>Problema</th>
             <th>Publicação</th>
             <th>Descrição</th>
+            <th>Bairro</th>
             <th>Ações</th>
           </thead>
           <tbody>
@@ -62,6 +75,7 @@
               <td>{{p.title}}</td>
               <td>{{p.datePub.toDate() | date : 'dd/MM/yyyy'}}</td>
               <td>{{p.description}} </td>
+              <td>{{p.bairro}} </td>
               <td>
                 <button type="button" (click)="editProject(p)" class="btn btn-success  ">
                   <i class="fas fa-edit"></i>

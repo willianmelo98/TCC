@@ -34,6 +34,101 @@ export class AddPostComponent implements OnInit {
   }
 
 
+  estados: string[] = [
+    "Água Rasa‎",
+    "Alto de Pinheiros‎",
+    "Anhanguera‎",
+    "Aricanduva‎",
+    "Artur Alvim‎",
+    "Barra Funda‎",
+    "Bela Vista‎",
+    "Belém‎",
+    "Bom Retiro",
+    "Brasilândia",
+    "Butantã‎",
+    "Cachoeirinha‎",
+    "Cambuci‎",
+    "Campo Belo‎",
+    "Campo Grande",
+    "Campo Limpo‎",
+    "Cangaíba‎",
+    "Capão Redondo",
+    "Carrão‎",
+    "Casa Verde‎",
+    "Cidade Ademar‎",
+    "Cidade Dutra‎",
+    "Cidade Líder‎",
+    "Cidade Líder‎",
+    "Cidade Tiradentes‎",
+    "Consolação‎",
+    "Cursino‎",
+    "Ermelino Matarazzo",
+    "Freguesia do Ó",
+    "Grajaú‎",
+    "Guaianases",
+    "Iguatemi‎",
+    "Ipiranga‎",
+    "Itaim Bibi",
+    "Itaim Paulista",
+    "Itaquera‎",
+    "Jabaquara‎",
+    "Jaçanã‎",
+    "Jaguara‎",
+    "Jaguaré",
+    "Jaraguá",
+    "Jardim Ângela",
+    "Jardim Helena",
+    "Jardim Paulista‎",
+    "Jardim São Luís‎",
+    "Lapa‎",
+    "Liberdade‎",
+    "Limão‎",
+    "Mandaqui‎",
+    "Marsilac‎",
+    "Moema‎",
+    "Mooca‎",
+    "Morumbi‎",
+    "Parelheiros‎",
+    "Pari‎",
+    "Parque do Carmo‎",
+    "Penha‎",
+    "Perdizes‎",
+    "Pinheiros‎",
+    "Ponte Rasa‎",
+    "Raposo Tavares‎",
+    "República‎",
+    "Rio Pequeno‎",
+    "Sacomã‎",
+    "Santa Cecília",
+    "Santana‎",
+    "Santo Amaro",
+    "São Domingos",
+    "São Lucas‎",
+    "São Mateus",
+    "São Miguel Paulista‎",
+    "São Rafael‎",
+    "Sapopemba‎",
+    "Saúde‎",
+    "Sé‎",
+    "Tatuapé‎",
+    "Tremembé‎",
+    "Tucuruvi",
+    "Vila Andrade‎",
+    "Vila Curuçá‎",
+    "Vila Formosa‎",
+    "Vila Guilherme‎",
+    "Vila Jacuí‎",
+    "Vila Leopoldina‎",
+    "Vila Maria‎",
+    "Vila Mariana‎",
+    "Vila Matilde‎",
+    "Vila Medeiros‎",
+    "Vila Prudente‎",
+    "Vila Sônia‎"
+
+  ];
+
+
 
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
@@ -56,7 +151,8 @@ export class AddPostComponent implements OnInit {
   initForm() {
     this.formProject = this.form.group({
       title: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      bairro: ['', Validators.required]
     });
   }
 
@@ -81,7 +177,7 @@ export class AddPostComponent implements OnInit {
       this.messages = `Verifique os campo sobrigatórios!`
       return;
     }
-    this.project = this.formProject.value
+    this.project = this.formProject.value;
     this.project.displayName = this.usuario.displayName;
     this.project.photoURL = this.usuario.photoURL;
     this.project.photoMain = this.caminhoImagem;
@@ -112,6 +208,7 @@ export class AddPostComponent implements OnInit {
       this.id = p.idProject
       this.formProject.controls['title'].setValue(p.title)
       this.formProject.controls['description'].setValue(p.description)
+      this.formProject.controls['bairro'].setValue(p.bairro)
     }
 
     deleteProject(p: Project) {

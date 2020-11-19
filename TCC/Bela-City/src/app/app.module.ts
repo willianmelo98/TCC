@@ -26,7 +26,6 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import {MatMenuModule} from '@angular/material/menu';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -56,7 +55,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatMenuModule,
     MatSelectModule,
-    MatFormFieldModule,
 
 
   ],
