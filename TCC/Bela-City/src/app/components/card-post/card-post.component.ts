@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Project } from 'src/app/shared/services/project.model';
@@ -11,10 +11,17 @@ import { StorageService } from 'src/app/shared/services/storage.service';
 })
 export class CardPostComponent implements OnInit {
 
+  showOne: boolean;
+  bairro:string;
+
+  photoURL: string;
+  url: String;
+
   projects$: Observable<Project[]>
+  post$: Observable<Project[]>
   project: Project;
 
-  estados: string[] = [
+  estados:String[] = [
     "Água Rasa‎",
     "Alto de Pinheiros‎",
     "Anhanguera‎",
@@ -109,18 +116,24 @@ export class CardPostComponent implements OnInit {
   ];
 
 
-  photoURL: string;
-  url: String;
-
 
   constructor(public authService: AuthService, private projectService: StorageService,
     public ngZone: NgZone) {
 
+      this.showOne = false;
   }
 
   ngOnInit(): void {
+
+
     this.projects$ = this.projectService.getAllProjects();
-    this.photoURL = this.project.photoURL
+    this.photoURL = this.project.photoURL;
+
+  }
+
+  filtrar() {
+
+    this.post$ =this.projectService.getProject(this.bairro);
 
   }
 

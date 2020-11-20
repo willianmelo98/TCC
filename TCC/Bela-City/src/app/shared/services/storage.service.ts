@@ -23,21 +23,21 @@ nome:String;
   getAllProjects(): Observable<Project[]> {
     return this.storage.collection<Project>('projects', ref =>
       ref.orderBy('datePub', 'desc'))
-      .valueChanges()
+      .valueChanges();
   }
 
 
-   getProject(): Observable<Project[]> {
-    return this.storage.collection<Project>('projects', ref =>
-      ref
-      .where("bairro", "==", "Aricanduva‎"))
-      .valueChanges()
+   getProject(bairro:string): Observable<Project[]> {
+    return  this.storage.collection<Project>('projects', ref =>
+      ref.where("bairro","==",bairro))
+      .valueChanges();
   }
 
 
 
    getPost(): Observable<Project[]>{
-     return this.storage.collection<Project>("projects", ref => ref.where("displayName", "==",this.perfil.displayName)).valueChanges();
+     return this.storage.collection<Project>("projects", ref =>
+     ref.where("displayName", "==",this.perfil.displayName)).valueChanges();
 
    }
 

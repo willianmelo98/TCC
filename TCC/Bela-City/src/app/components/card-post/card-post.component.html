@@ -1,14 +1,16 @@
-
-<!--
 <mat-card>
-<mat-form-field appearance="fill">
+<mat-form-field  appearance="fill">
   <mat-label>Bairro</mat-label>
-  <mat-select>
+  <mat-select [(ngModel)]="showOne" [(value)]='bairro' (ngModelChange)="filtrar()">
     <mat-option>None</mat-option>
-    <mat-option *ngFor="let estado of estados" [value]="estado">{{estado}}</mat-option>
+    <mat-option *ngFor="let estado of estados"  [value]="estado" >{{estado}}</mat-option>
   </mat-select>
 </mat-form-field>
-</mat-card> -->
+
+</mat-card>
+
+<div *ngIf="!showOne">
+
 
 <mat-card *ngFor="let p of projects$ | async">
 
@@ -28,6 +30,32 @@
 
 
 </mat-card>
+
+</div>
+
+<div class="caixaPrincipal" *ngIf="showOne">
+<mat-card *ngFor="let p of post$ | async">
+
+  <img class="imagemPost" [src]="p.photoMain">
+  <div>
+
+  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="p.photoURL"
+    alt={{p.displayName}}> <p>{{p.displayName}}</p></span>
+
+
+    <span class="caixaNomeFoto" >Problema: {{p.title}}</span>
+    <span class="caixaNomeFoto" >Descrição: {{p.description}}</span>
+    <span class="caixaNomeFoto" >Bairro: {{p.bairro}}</span>
+
+  </div>
+
+
+</mat-card>
+
+</div>
+
+
+
 
 <!--
 

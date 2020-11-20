@@ -152,7 +152,7 @@ export class AddPostComponent implements OnInit {
     this.formProject = this.form.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      bairro: ['', Validators.required]
+      bairro: ['', Validators.required],
     });
   }
 
@@ -205,10 +205,10 @@ export class AddPostComponent implements OnInit {
     editProject(p: Project) {
       this.edit = true;
       this.labelButton = 'Update';
-      this.id = p.idProject
-      this.formProject.controls['title'].setValue(p.title)
-      this.formProject.controls['description'].setValue(p.description)
-      this.formProject.controls['bairro'].setValue(p.bairro)
+      this.id = p.idProject;
+      this.formProject.controls['title'].setValue(p.title);
+      this.formProject.controls['description'].setValue(p.description);
+      this.formProject.controls['bairro'].setValue(p.bairro);
     }
 
     deleteProject(p: Project) {
