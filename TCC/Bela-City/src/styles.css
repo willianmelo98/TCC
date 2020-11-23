@@ -238,7 +238,7 @@ input:-moz-placeholder {
 
 /* * Sidebar */
 .sidebar {
-  position: fixed;
+  position:relative;
   top: 0;
   bottom: 0;
   left: 0;
@@ -247,6 +247,7 @@ input:-moz-placeholder {
   padding: 48px 0 0;
   /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  height: 905px;
 }
 
 .sidebar-sticky {
@@ -589,6 +590,7 @@ body .table thead th {
     color:rgb(48, 47, 47);
   }
 
+  
   .displayTableCell{
     background-color: #3F51B5;
   }
