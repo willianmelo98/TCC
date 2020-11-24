@@ -54,16 +54,32 @@ export class AuthService {
 
 
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email, password, name,fotoPerfil) {
     return this.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        this.updateUser(name,fotoPerfil);
+
       }).catch((error) => {
         window.alert(error.message)
       })
+  }
+
+
+  updateUser(name,fotoPerfil){
+  const user = firebase.auth().currentUser;
+ user.updateProfile({
+  displayName: name,
+  photoURL: fotoPerfil
+}).then(function() {
+  // Update successful.
+}).catch(function(error) {
+  // An error happened.
+});
+
   }
 
   // Send email verfificaiton when new user sign up

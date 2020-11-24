@@ -5,6 +5,25 @@
       <h3>Registrar-se</h3>
 
       <div class="formGroup">
+        <input type="text" class="formControl" placeholder="Nome e sobrenome" #name required>
+      </div>
+
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls ">
+          <label>Foto de Perfil*:</label>
+          <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png" />
+          <progress style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
+        </div>
+      </div>
+      <div *ngIf="fotoPerfil" class="control-group ">
+        <div class="form-group floating-label-form-group controls ">
+         <img style="width: 90%" [src]="fotoPerfil">
+        </div>
+      </div>
+      <br>
+
+
+      <div class="formGroup">
         <input type="email" class="formControl" placeholder="Endereço de E-mail" #userEmail required>
       </div>
 
@@ -15,7 +34,7 @@
 
 
       <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value,name.value,fotoPerfil)">
       </div>
 
       <div class="formGroup">

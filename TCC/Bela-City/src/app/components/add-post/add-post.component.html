@@ -33,13 +33,14 @@
           </div>
         </div>
 
-        <div class="control-group ">
+        <div class="control-group">
           <div class="form-group floating-label-form-group controls ">
             <label>Imagem*:</label>
-            <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png" />
+            <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png , .gif" />
             <progress style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
           </div>
         </div>
+
         <div *ngIf="caminhoImagem" class="control-group ">
           <div class="form-group floating-label-form-group controls ">
            <img style="width: 90%" [src]="caminhoImagem">

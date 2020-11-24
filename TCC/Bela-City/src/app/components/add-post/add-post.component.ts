@@ -209,6 +209,7 @@ export class AddPostComponent implements OnInit {
       this.formProject.controls['title'].setValue(p.title);
       this.formProject.controls['description'].setValue(p.description);
       this.formProject.controls['bairro'].setValue(p.bairro);
+      this.caminhoImagem = p.photoMain
     }
 
     deleteProject(p: Project) {
