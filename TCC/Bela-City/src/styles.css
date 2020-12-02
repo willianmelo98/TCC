@@ -89,7 +89,6 @@ h3 {
 .authBlock {
   margin: 0 auto;
   max-width: 400px;
-  background:rgba(10, 10, 10, 0.5);
   background-color: rgba(10, 10, 10, 0.5);
 
   padding: 30px 40px 10px;
@@ -591,17 +590,17 @@ body .table thead th {
 
 
   .authBlock{
-    background-color: #3F51B5;
+    background-color: rgba(10, 10, 10, 0.5);
   }
 
 
   .or{
-    background-color: #3F51B5;
+    background-color: rgba(10, 10, 10, 0.5);
   }
 
 
   .orInner{
-    background-color: #3F51B5;
+    background-color: rgba(10, 10, 10, 0.5);
     color: white;
   }
 
@@ -617,7 +616,7 @@ body .table thead th {
 
 
   .displayTableCell{
-    background-color: #3F51B5;
+    background-color: rgba(10, 10, 10, 0.5);
   }
 
 
