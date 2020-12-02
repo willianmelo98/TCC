@@ -36,8 +36,13 @@ nome:String;
 
 
    getPost(): Observable<Project[]>{
-     return this.storage.collection<Project>("projects", ref =>
-     ref.where("displayName", "==",this.perfil.displayName)).valueChanges();
+
+      return this.storage.collection<Project>("projects", ref =>
+
+
+      ref.where("uid", "==",this.perfil.uid)).valueChanges();
+
+
 
    }
 

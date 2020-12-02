@@ -26,7 +26,7 @@
         <div class="control-group">
           <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Bairro</label>
-                <select class="" formControlName="bairro" required="requerid">
+                <select id="form-input" class="form-control" formControlName="bairro" required="requerid">
                   <option *ngFor="let estado of estados" [value]="estado">{{estado}}</option>
                 </select>
 
@@ -36,7 +36,7 @@
         <div class="control-group">
           <div class="form-group floating-label-form-group controls ">
             <label>Imagem*:</label>
-            <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png , .gif" />
+            <input type="file" #inputFile class="form-control" id="form-input"  (change)="upload($event)" accept=".jpg,.jpeg,.png ,.gif"/>
             <progress style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { AuthService } from "../../shared/services/auth.service";
 
@@ -11,34 +12,33 @@ import { AuthService } from "../../shared/services/auth.service";
 
 export class SignUpComponent implements OnInit {
 
+  formLogin: FormGroup;
+
+
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   task: AngularFireUploadTask;
   complete: boolean;
-  fotoPerfil: string;
 
   constructor(
-    public authService: AuthService,private storage: AngularFireStorage
+    public authService: AuthService,private storage: AngularFireStorage,private form: FormBuilder
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.initForm();
+
+   }
+
+   initForm() {
+    this.formLogin = this.form.group({
+      name: ['', Validators.required],
 
 
-  upload(event) {
-    this.complete = false;
-    const file = event.target.files[0]
-    const path = `imagens/${file.name}`;
-    const fileRef = this.storage.ref(path.replace(/\s/g, ''));
-    this.task = this.storage.upload(path.replace(/\s/g, ''), file)
-    this.task.then(up => {
-      fileRef.getDownloadURL().subscribe(url => {
-        this.complete = true
-        this.fotoPerfil = url
-
-      })
-    })
-    this.uploadPercent = this.task.percentageChanges();
+    });
   }
+
+
+
 
 
 

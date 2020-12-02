@@ -1,6 +1,3 @@
-
-
-
 <!-- Sidebar navigation -->
 <div class="container-fluid">
   <div class="row">
@@ -32,11 +29,10 @@
         <div class="row" *ngIf="authService.userData as user">
           <div class="col-md-12">
             <div class="media">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                alt="{{user.displayName}}">
+              <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+                src="{{(user.photoURL) ? user.photoURL : '/assets/user.jpg'}}" alt="{{user.displayName}}">
               <div class="media-body">
-                <h1> <strong>{{(user.displayName) ? user.displayName : 'Nome'}}</strong></h1>
-                <div> <strong class="email">{{user.email}}</strong></div>
+                <h1> <strong>{{(user.displayName) ? user.displayName : 'Anônimo'}}</strong></h1>
 
               </div>
               <div class="pt-3 pb-2 mb-3 border-bottom">
@@ -49,29 +45,43 @@
 
         </div>
 
+
+
+      </div>
+
+      <div class="alignCard">
+
+        <mat-card *ngFor="let p of post$ | async">
+          <img class="imagemPost" [src]="p.photoMain">
+          <div>
+
+            <span class="caixaNomeFoto"><img class="fotoProfile" [src]="(p.photoURL) ? p.photoURL :'/assets/user.jpg'"
+                alt={{p.displayName}}>
+              <p>{{(p.displayName) ? p.displayName : 'Anônimo'}}</p>
+              <div class="data">
+                <p>{{p.datePub.toDate() | date : 'dd/MM/yyyy'}}</p>
+              </div>
+            </span>
+
+
+            <span class="caixaNomeFoto">Problema: {{p.title}} </span>
+            <span class="caixaNomeFoto">Descrição: {{p.description}}</span>
+            <span class="caixaNomeFoto">Bairro: {{p.bairro}}</span>
+
+
+          </div>
+
+
+
+
+        </mat-card>
+
       </div>
     </main>
 
 
 
+
+
   </div>
 </div>
-
-<mat-card *ngFor="let p of post$ | async">
-  <img class="imagemPost" [src]="p.photoMain">
-  <div>
-
-  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="p.photoURL"
-    alt={{p.displayName}}> <p>{{p.displayName}}</p></span>
-
-
-    <span class="caixaNomeFoto" >Problema: {{p.title}}</span>
-    <span class="caixaNomeFoto" >Descrição: {{p.description}}</span>
-
-
-
-  </div>
-
-
-
-</mat-card>

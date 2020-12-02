@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.example.belacity",
-    "sha256_cert_fingerprints":
-    ["EC:6C:A4:0F:B6:BB:B8:1D:7A:8E:60:72:58:BC:BD:94:89:E7:5B:CB:DE:31:A4:29:17:64:20:42:B5:D9:17:EE"]
-  }
-}]

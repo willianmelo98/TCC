@@ -14,16 +14,17 @@
 
 <mat-card *ngFor="let p of projects$ | async">
 
-  <img class="imagemPost" [src]="p.photoMain">
+  <img class="imagemPost" [lazyLoad]="p.photoMain">
   <div>
 
-  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="p.photoURL"
-    alt={{p.displayName}}> <p>{{p.displayName}}</p></span>
+  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="(p.photoURL) ? p.photoURL :'/assets/user.jpg'"
+    alt={{p.displayName}}> <p>{{(p.displayName) ? p.displayName : 'Anônimo'}}</p> <div class="data"><p>{{p.datePub.toDate() | date : 'dd/MM/yyyy'}}</p></div></span>
 
 
-    <span class="caixaNomeFoto" >Problema: {{p.title}}</span>
+    <span class="caixaNomeFoto" >Problema: {{p.title}} </span>
     <span class="caixaNomeFoto" >Descrição: {{p.description}}</span>
     <span class="caixaNomeFoto" >Bairro: {{p.bairro}}</span>
+
 
   </div>
 
@@ -39,7 +40,7 @@
   <img class="imagemPost" [src]="p.photoMain">
   <div>
 
-  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="p.photoURL"
+  <span class="caixaNomeFoto" ><img class="fotoProfile" [src]="(p.photoURL) ? p.photoURL :'/assets/user.jpg'"
     alt={{p.displayName}}> <p>{{p.displayName}}</p></span>
 
 

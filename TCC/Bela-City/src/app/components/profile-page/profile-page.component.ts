@@ -15,6 +15,10 @@ export class ProfilePageComponent implements OnInit {
   post$: Observable<Project[]>
   project: Project;
 
+  edit: boolean;
+  labelButton: string;
+  id: string;
+  messages: string
 
   constructor(
     public authService: AuthService,
@@ -27,6 +31,38 @@ export class ProfilePageComponent implements OnInit {
     this.post$ = this.projectService.getPost();
 
   }
+
+  editarPub(){
+
+      this.project.idProject = this.id;
+      this.projectService.update(this.project)
+        .then(() => {
+          this.messages = `Projeto Atulizado com sucesso!`;
+          this.labelButton = 'Salvar'
+
+        })
+        .catch((erro) => { this.messages = `Erro ao atualizar o projeto: ${erro}` })
+
+  }
+
+
+
+  editProject(p: Project) {
+    this.edit = true;
+    this.labelButton = 'Atualizar';
+    this.id = p.idProject;
+
+  }
+
+  deleteProject(p: Project) {
+    this.projectService.delete(p)
+      .then(() => {
+        this.messages = `Projeto Excluído com sucesso!`;
+      })
+      .catch((erro) => { this.messages = `Erro ao excluir o projeto: ${erro}` })
+
+  }
+
 
 
 

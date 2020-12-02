@@ -15,7 +15,7 @@ import firebase from 'firebase/app';
 export class AuthService {
    userData: any; // Save logged in user data
 
-
+  fotoPerfil:string;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -48,37 +48,44 @@ export class AuthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        window.alert("Ops, algo deu errado. Tente novamente !")
       })
   }
 
 
   // Sign up with email/password
-  SignUp(email, password, name,fotoPerfil) {
+  SignUp(email, password, name) {
+
     return this.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
-        this.updateUser(name,fotoPerfil);
+          this.updateUser(name,"");
+
 
       }).catch((error) => {
-        window.alert(error.message)
+        window.alert("Email ja cadastrado ou invalido.")
       })
+
   }
 
 
   updateUser(name,fotoPerfil){
+
+
   const user = firebase.auth().currentUser;
- user.updateProfile({
-  displayName: name,
-  photoURL: fotoPerfil
-}).then(function() {
-  // Update successful.
-}).catch(function(error) {
-  // An error happened.
-});
+  user.updateProfile({
+
+   displayName: name,
+   photoURL: fotoPerfil
+ }).then(function() {
+   // Update successful.
+ }).catch(function(error) {
+   // An error happened.
+ });
+
 
   }
 

@@ -2,6 +2,7 @@
 
 
 export class Project {
+  uid: string;
   photoURL: string;
   displayName: string;
   bairro:string;

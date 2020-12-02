@@ -4,48 +4,56 @@
     <div class="authBlock">
       <h3>Registrar-se</h3>
 
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Nome e sobrenome" #name required>
-      </div>
+      <form [formGroup]="formLogin">
+        <div class="formGroup">
+          <input type="text" class="formControl" formControlName="name" placeholder="Nome e sobrenome" #name required>
+        </div>
 
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls ">
-          <label>Foto de Perfil*:</label>
-          <input type="file" #inputFile class="form-control" (change)="upload($event)" accept=".jpg, .jpeg, .png" />
+
+
+        <!-- <div class="control-group">
+        <div class="">
+          <label>Foto de Perfil:</label>
+
+          <input type="file"  #inputFile placeholder=""  class="form-control"  id="form-input" (change)="upload($event)" accept=".jpg,.jpeg,.png"/>
           <progress style="width: 100%;" max="100" [value]="(uploadPercent | async)"></progress>
         </div>
-      </div>
-      <div *ngIf="fotoPerfil" class="control-group ">
+          </div>
+         <div *ngIf="fotoPerfil" id="imagemUp" class="control-group">
         <div class="form-group floating-label-form-group controls ">
          <img style="width: 90%" [src]="fotoPerfil">
         </div>
-      </div>
-      <br>
+          </div>
+            <br>
+-->
+
+        <div class="formGroup">
+          <input type="email" class="formControl" placeholder="Endereço de E-mail" #userEmail required>
+        </div>
+
+
+        <div class="formGroup">
+          <input type="password" class="formControl" placeholder="Senha" #userPwd required>
+        </div>
+
+
+        <div class="formGroup">
+          <input type="button" [disabled]='!formLogin.valid' class="btn btnPrimary" value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value,name.value)">
+        </div>
+
+      </form>
 
 
       <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Endereço de E-mail" #userEmail required>
-      </div>
-
-
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Senha" #userPwd required>
-      </div>
-
-
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value,name.value,fotoPerfil)">
-      </div>
-
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
+        <span class="or"><span class="orInner">Ou</span></span>
       </div>
 
       <!-- Continue with Google -->
       <div class="formGroup">
         <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-          Continue with Google
+          Continue com Google
         </button>
       </div>
 
@@ -53,7 +61,7 @@
       <div class="formGroup">
         <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
           <i class="fab fa-facebook"></i>
-          Continue with Facebook
+          Continue com Facebook
         </button>
       </div>
 
@@ -61,7 +69,7 @@
     </div>
 
     <div class="redirectToLogin">
-      <span>Já Possui uma Conta? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+      <span>Já Possui uma Conta? <span class="redirect" routerLink="/sign-in">Entrar</span></span>
     </div>
   </div>
 

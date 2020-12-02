@@ -29,6 +29,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {MatSelectModule} from '@angular/material/select';
 
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +61,10 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatMenuModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    LazyLoadImageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+
 
 
   ],

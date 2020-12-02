@@ -143,7 +143,7 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit() {
     this.initForm()
-    this.labelButton = 'Save';
+    this.labelButton = 'Salvar';
     this.projects$ = this.projectService.getPost();
     this.project = new Project();
   }
@@ -156,12 +156,14 @@ export class AddPostComponent implements OnInit {
     });
   }
 
+
+
   upload(event) {
     this.complete = false;
-    const file = event.target.files[0]
-    const path = `imagens/${file.name}`;
+    const randomId = Math.random().toString(36).substring(2);
+    const path = `imagens/${randomId}`;
+    this.task = this.storage.upload(path.replace(/\s/g, ''), event.target.files[0]);
     const fileRef = this.storage.ref(path.replace(/\s/g, ''));
-    this.task = this.storage.upload(path.replace(/\s/g, ''), file)
     this.task.then(up => {
       fileRef.getDownloadURL().subscribe(url => {
         this.complete = true
@@ -170,7 +172,10 @@ export class AddPostComponent implements OnInit {
       })
     })
     this.uploadPercent = this.task.percentageChanges();
+
   }
+
+
 
     saveProject() {
     if (this.formProject.invalid) {
@@ -179,6 +184,7 @@ export class AddPostComponent implements OnInit {
     }
     this.project = this.formProject.value;
     this.project.displayName = this.usuario.displayName;
+    this.project.uid = this.usuario.uid;
     this.project.photoURL = this.usuario.photoURL;
     this.project.photoMain = this.caminhoImagem;
     if (!this.edit) {
@@ -195,7 +201,7 @@ export class AddPostComponent implements OnInit {
         .then(() => {
           this.messages = `Projeto Atulizado com sucesso!`;
           this.formProject.reset();
-          this.labelButton = 'Save'
+          this.labelButton = 'Salvar'
 
         })
         .catch((erro) => { this.messages = `Erro ao atualizar o projeto: ${erro}` })
@@ -204,7 +210,7 @@ export class AddPostComponent implements OnInit {
 
     editProject(p: Project) {
       this.edit = true;
-      this.labelButton = 'Update';
+      this.labelButton = 'Atualizar';
       this.id = p.idProject;
       this.formProject.controls['title'].setValue(p.title);
       this.formProject.controls['description'].setValue(p.description);
